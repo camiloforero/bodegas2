@@ -1,0 +1,9 @@
+{
+    "displayName" : "Bodega",
+    "name" : "bodega",
+    "templateName" : "bodega",
+    "url" : "bodega.html",
+    "server": "localhost:8080",
+    "context": "/bodega.master.service.subsystem/webresources/BodegaMaster",
+    "el" : "#main"
+}

@@ -1,0 +1,9 @@
+{
+    "displayName" : "Orden",
+    "name" : "orden",
+    "templateName" : "orden",
+    "url" : "user.html",
+    "server": "localhost:8080",
+    "context": "/orden.service.subsystem.web/webresources/Orden",
+    "el" : "#main"
+}

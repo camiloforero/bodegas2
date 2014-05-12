@@ -1,0 +1,9 @@
+{
+    "displayName" : "ItemInventario",
+    "name" : "itemInventario",
+    "templateName" : "itemInventario",
+    "url" : "user.html",
+    "server": "localhost:8080",
+    "context": "/iteminventario.service.subsystem.web/webresources/ItemInventario",
+    "el" : "#main"
+}

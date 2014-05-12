@@ -1,0 +1,9 @@
+{
+    "displayName" : "Log",
+    "name" : "log",
+    "templateName" : "log",
+    "url" : "user.html",
+    "server": "localhost:8080",
+    "context": "/log.service.subsystem.web/webresources/Log",
+    "el" : "#main"
+}

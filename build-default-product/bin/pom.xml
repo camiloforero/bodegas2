@@ -1,0 +1,29 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>co.edu.uniandes.csw.spl</groupId>
+  <artifactId>build-default-product</artifactId>
+  <version>1.0</version>
+  <packaging>pom</packaging>
+  <name>build-default-product</name>
+    <modules>
+    	  <module>../bodega.web</module>
+    	  <module>../bodega.service.subsystem</module>
+		  <module>../bodega.service.subsystem.web</module>
+    	  <module>../iteminventario.web</module>
+    	  <module>../iteminventario.service.subsystem</module>
+		  <module>../iteminventario.service.subsystem.web</module>
+    	  <module>../producto.web</module>
+    	  <module>../producto.service.subsystem</module>
+		  <module>../producto.service.subsystem.web</module>
+    	  <module>../log.web</module>
+    	  <module>../log.service.subsystem</module>
+		  <module>../log.service.subsystem.web</module>
+    	  <module>../pedido.web</module>
+    	  <module>../pedido.service.subsystem</module>
+		  <module>../pedido.service.subsystem.web</module>
+    	  <module>../orden.web</module>
+    	  <module>../orden.service.subsystem</module>
+		  <module>../orden.service.subsystem.web</module>
+    </modules>
+</project>

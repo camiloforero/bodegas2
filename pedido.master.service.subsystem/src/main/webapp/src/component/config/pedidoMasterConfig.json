@@ -1,0 +1,9 @@
+{
+    "displayName" : "Pedido",
+    "name" : "pedido",
+    "templateName" : "pedido",
+    "url" : "pedido.html",
+    "server": "localhost:8080",
+    "context": "/pedido.master.service.subsystem/webresources/PedidoMaster",
+    "el" : "#main"
+}

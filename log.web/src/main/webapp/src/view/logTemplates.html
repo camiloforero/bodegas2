@@ -1,0 +1,85 @@
+<script type="text/template" id="logList">
+    <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <table class="table striped">
+    <thead>
+    <tr>
+		 <th>name</th>
+		 <th>cantidad</th>
+		 <th>entra</th>
+		 <th>justificacion</th>
+		 <th>bodegaId</th>
+		 <th>productoId</th>
+    <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% _.each(logs, function(log) { %>
+    <tr>
+		<td><%= htmlEncode(log.getDisplay('name')) %></td>
+		<td><%= htmlEncode(log.getDisplay('cantidad')) %></td>
+		<td><%= htmlEncode(log.getDisplay('entra')) %></td>
+		<td><%= htmlEncode(log.getDisplay('justificacion')) %></td>
+		<td><%= htmlEncode(log.getDisplay('bodegaId')) %></td>
+		<td><%= htmlEncode(log.getDisplay('productoId')) %></td>
+    <td>
+    <% if(showEdit) {%>
+    <a onclick="Backbone.trigger('<%= componentId %>-log-edit',{id:<%= log.id %>}); return false" >Edit</a> |
+	<% } %> 
+	<% if(showDelete) {%>
+    <a onclick="Backbone.trigger('<%= componentId %>-log-delete',{id:<%= log.id %>}); return false" >Delete</a> 
+	<% } %>    
+	</td>
+    </tr>
+    <% }); %>
+    </tbody>
+    </table>
+    </div>
+</script>
+
+<script type="text/template" id="log">
+    <div class="form-group">
+    <form role="form" id="<%= componentId %>-logForm">
+    <% if(log.id) {%>
+    <input type="hidden" name="id" value="<%= log.id %>"/>
+    <% }%>
+		<div class="form-group" >
+		<label for="name">name</label>
+    	<input type="text" class="form-control" id="name" name="name" placeholder="Enter value" value="<%= log.get('name') %>"/>	
+		</div>
+		<div class="form-group" >
+		<label for="cantidad">cantidad</label>
+    	<input type="text" class="form-control" id="cantidad" name="cantidad" placeholder="Enter value" value="<%= log.get('cantidad') %>"/>	
+		</div>
+		<div class="form-group" >
+	    <label>
+    	  <input id="entra" name="entra" value="true" type="checkbox" <%= log.get('entra')?'checked':'' %>> entra
+    	</label>
+		</div>
+		<div class="form-group" >
+		<label for="justificacion">justificacion</label>
+    	<input type="text" class="form-control" id="justificacion" name="justificacion" placeholder="Enter value" value="<%= log.get('justificacion') %>"/>	
+		</div>
+		<div class="form-group" >
+ 
+			<label for="bodegaidId">bodegaId</label> 
+            <select class="form-control" id="bodegaId" name="bodegaId">
+			  <option value="">None</option>
+            <% bodega.each(function(bodegaid) { %> 
+              <option value="<%=bodegaid.get('id')%>" <% if(log.get('bodegaId')==bodegaid.get('id')) {%>selected<%}%> ><%=bodegaid.get('name')%></option>
+            <% }); %>                
+            </select>  
+		</div>
+		<div class="form-group" >
+ 
+			<label for="productoidId">productoId</label> 
+            <select class="form-control" id="productoId" name="productoId">
+			  <option value="">None</option>
+            <% producto.each(function(productoid) { %> 
+              <option value="<%=productoid.get('id')%>" <% if(log.get('productoId')==productoid.get('id')) {%>selected<%}%> ><%=productoid.get('name')%></option>
+            <% }); %>                
+            </select>  
+		</div>
+    </form>
+    </div>
+</script> 

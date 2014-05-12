@@ -1,0 +1,42 @@
+<script type="text/template" id="bodegaList">
+    <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <table class="table striped">
+    <thead>
+    <tr>
+		 <th>name</th>
+    <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% _.each(bodegas, function(bodega) { %>
+    <tr>
+		<td><%= htmlEncode(bodega.getDisplay('name')) %></td>
+    <td>
+    <% if(showEdit) {%>
+    <a onclick="Backbone.trigger('<%= componentId %>-bodega-edit',{id:<%= bodega.id %>}); return false" >Edit</a> |
+	<% } %> 
+	<% if(showDelete) {%>
+    <a onclick="Backbone.trigger('<%= componentId %>-bodega-delete',{id:<%= bodega.id %>}); return false" >Delete</a> 
+	<% } %>    
+	</td>
+    </tr>
+    <% }); %>
+    </tbody>
+    </table>
+    </div>
+</script>
+
+<script type="text/template" id="bodega">
+    <div class="form-group">
+    <form role="form" id="<%= componentId %>-bodegaForm">
+    <% if(bodega.id) {%>
+    <input type="hidden" name="id" value="<%= bodega.id %>"/>
+    <% }%>
+		<div class="form-group" >
+		<label for="name">name</label>
+    	<input type="text" class="form-control" id="name" name="name" placeholder="Enter value" value="<%= bodega.get('name') %>"/>	
+		</div>
+    </form>
+    </div>
+</script> 
