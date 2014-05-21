@@ -42,5 +42,23 @@
             <version>1.0.0.CR3</version>
             <scope>test</scope>
         </dependency>
+        
+        <!-- Dependencias hacia los otros subsystems -->
+        <dependency>
+            <groupId>co.edu.uniandes.csw</groupId>
+            <artifactId>bodega.service.subsystem</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>co.edu.uniandes.csw</groupId>
+            <artifactId>iteminventario.service.subsystem</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>co.edu.uniandes.csw</groupId>
+            <artifactId>bodega.master.service.subsystem</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <classifier>classes</classifier>
+        </dependency>
     </dependencies>
 </project>
