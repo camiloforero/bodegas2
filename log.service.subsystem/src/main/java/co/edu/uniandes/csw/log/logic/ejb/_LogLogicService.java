@@ -18,7 +18,7 @@ public abstract class _LogLogicService implements _ILogLogicService {
 	protected ILogPersistence persistance;
         
         @Inject
-        protected IBodegaPersistence bodegaPersistance;
+        protected IBodegaPersistence bodegaPersistance; 
         
         @Inject
         protected IItemInventarioPersistence itemInventarioPersistance;
@@ -31,7 +31,7 @@ public abstract class _LogLogicService implements _ILogLogicService {
 	public LogDTO createLog(LogDTO log){
             
             
-            
+            log.setId(persistance.getMaxID() + 1l);
             System.out.println("llega hasta acá 1, con lista");
             List<ItemInventarioDTO> itemsProducto = itemInventarioPersistance.getItemInventariosProducto(log.getProductoId());
             boolean existe = false;
@@ -59,7 +59,7 @@ public abstract class _LogLogicService implements _ILogLogicService {
                 ItemInventarioDTO iDTO = new ItemInventarioDTO();
                 iDTO.setName(log.getBodegaId() + "");
                 iDTO.setCantidad(log.getCantidad());
-                iDTO.setId(log.getId());
+                iDTO.setId(persistance.getMaxItemInventarioID() + 1l);
                 iDTO.setProductoId(log.getProductoId());
             
                 ItemInventarioDTO persistedItemInventarioDTO = itemInventarioPersistance.createItemInventario(iDTO);          

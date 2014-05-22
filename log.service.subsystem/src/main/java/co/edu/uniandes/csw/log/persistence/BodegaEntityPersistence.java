@@ -13,7 +13,7 @@ public class BodegaEntityPersistence
 {
 
     @PersistenceContext(unitName = "BodegaMasterPU")
-    protected EntityManager entityManager;
+    protected EntityManager entityManager; 
     
     
    public BodegaItemInventarioEntity createBodegaItemInventario(BodegaItemInventarioEntity entity) {

@@ -1,5 +1,6 @@
 package co.edu.uniandes.csw.pedido.master.logic.ejb;
 
+import co.edu.uniandes.csw.log.logic.api.ILogLogicService;
 import co.edu.uniandes.csw.orden.logic.dto.OrdenDTO;
 import co.edu.uniandes.csw.orden.persistence.api.IOrdenPersistence;
 import co.edu.uniandes.csw.pedido.logic.dto.PedidoDTO;
@@ -18,16 +19,54 @@ public abstract class _PedidoMasterLogicService implements _IPedidoMasterLogicSe
     protected IPedidoMasterPersistence pedidoMasterPersistance;
     @Inject
     protected IOrdenPersistence ordenPersistance;
+    
+    @Inject
+    protected ILogLogicService apiLog;
 
     public PedidoMasterDTO createMasterPedido(PedidoMasterDTO pedido) {
         PedidoDTO persistedPedidoDTO = pedidoPersistance.createPedido(pedido.getPedidoEntity());
-        if (pedido.getCreateOrden() != null) {
-            for (OrdenDTO ordenDTO : pedido.getCreateOrden()) {
-                OrdenDTO persistedOrdenDTO = ordenPersistance.createOrden(ordenDTO);
-                PedidoOrdenEntity pedidoOrdenEntity = new PedidoOrdenEntity(persistedPedidoDTO.getId(), persistedOrdenDTO.getId());
-                pedidoMasterPersistance.createPedidoOrden(pedidoOrdenEntity);
-            }
+        int cantidadDisponible = apiLog.darCantidadProducto(persistedPedidoDTO.getProductoId());
+        System.out.println(cantidadDisponible);
+        
+        int cantidadPedida = persistedPedidoDTO.getCantidad();
+        
+        int diferencia = cantidadDisponible - cantidadPedida;
+        
+        int cantidadPosible = diferencia >= 0 ? cantidadPedida : cantidadDisponible;
+        
+        //Crea un DTO para guardar una orden de despacho
+        OrdenDTO ordenDespacho = new OrdenDTO();
+        //Guarda los atributos
+        ordenDespacho.setEstado("Por entregar");
+        ordenDespacho.setId(ordenPersistance.getMaxID() + 1l);
+        ordenDespacho.setName(persistedPedidoDTO.getName() + " - " + "Orden de despacho");
+        ordenDespacho.setTipo("Orden de despacho");
+        ordenDespacho.setCantidad(cantidadPosible);
+        
+        //Guarda la orden creada
+        OrdenDTO persistedOrdenDTO = ordenPersistance.createOrden(ordenDespacho);
+        PedidoOrdenEntity pedidoOrdenEntity = new PedidoOrdenEntity(persistedPedidoDTO.getId(), persistedOrdenDTO.getId());
+        pedidoMasterPersistance.createPedidoOrden(pedidoOrdenEntity);
+        
+        //Crea una orden de producción, si aplica
+        if(diferencia < 0)
+        {
+            //Crea un DTO para guardar una orden de despacho
+        OrdenDTO ordenProd = new OrdenDTO();
+        //Guarda los atributos
+        ordenProd.setEstado("Por entregar");
+        ordenProd.setId(ordenPersistance.getMaxID() + 1l);
+        ordenProd.setName(persistedPedidoDTO.getName() + " - " + "Orden de reaprovisionamiento");
+        ordenProd.setTipo("Orden de reaprovisionamiento");
+        ordenProd.setCantidad(-diferencia);
+        
+        //Guarda la orden creada
+        persistedOrdenDTO = ordenPersistance.createOrden(ordenProd);
+        pedidoOrdenEntity = new PedidoOrdenEntity(persistedPedidoDTO.getId(), persistedOrdenDTO.getId());
+        pedidoMasterPersistance.createPedidoOrden(pedidoOrdenEntity);
         }
+        
+        
         return pedido;
     }
 

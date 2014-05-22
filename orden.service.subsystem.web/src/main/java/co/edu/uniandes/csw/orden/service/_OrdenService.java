@@ -46,5 +46,12 @@ public abstract class _OrdenService {
 	public void updateOrden(@PathParam("id") Long id, OrdenDTO orden){
 		ordenLogicService.updateOrden(orden);
 	}
+        
+        @GET
+	@Path("{id}/satisfacer")
+	public boolean satisfacer(@PathParam("id") Long id){
+            System.out.println("Está llegando hasta el @GET del service");
+		return ordenLogicService.satisfacer(id);
+	}
 	
 }

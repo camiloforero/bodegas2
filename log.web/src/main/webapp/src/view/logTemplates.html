@@ -4,12 +4,13 @@
     <table class="table striped">
     <thead>
     <tr>
-		 <th>name</th>
-		 <th>cantidad</th>
-		 <th>entra</th>
-		 <th>justificacion</th>
-		 <th>bodegaId</th>
-		 <th>productoId</th>
+		 <th>Nombre</th>
+                 <th>Producto</th>
+		 <th>Cantidad</th>
+		 <th>Bodega</th>
+		 <th>Tipo de movimiento</th>
+		 <th>Justificación</th>
+		 
     <th>Actions</th>
     </tr>
     </thead>
@@ -17,11 +18,12 @@
     <% _.each(logs, function(log) { %>
     <tr>
 		<td><%= htmlEncode(log.getDisplay('name')) %></td>
+                <td><%= htmlEncode(log.getDisplay('productoId')) %></td>
 		<td><%= htmlEncode(log.getDisplay('cantidad')) %></td>
+		<td><%= htmlEncode(log.getDisplay('bodegaId')) %></td>
 		<td><%= htmlEncode(log.getDisplay('entra')) %></td>
 		<td><%= htmlEncode(log.getDisplay('justificacion')) %></td>
-		<td><%= htmlEncode(log.getDisplay('bodegaId')) %></td>
-		<td><%= htmlEncode(log.getDisplay('productoId')) %></td>
+		
     <td>
     <% if(showEdit) {%>
     <a onclick="Backbone.trigger('<%= componentId %>-log-edit',{id:<%= log.id %>}); return false" >Edit</a> |

@@ -13,6 +13,12 @@ import co.edu.uniandes.csw.orden.logic.api.IOrdenLogicService;
 @Default
 @Stateless
 @LocalBean
-public class OrdenLogicService extends _OrdenLogicService implements IOrdenLogicService {
+public class OrdenLogicService extends _OrdenLogicService implements IOrdenLogicService 
+{
 
+    public boolean satisfacer(long id) {
+        System.out.println("VICTORY " + id);
+        return false;
+    }
+    
 }

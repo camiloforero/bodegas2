@@ -4,10 +4,11 @@
     <table class="table striped">
     <thead>
     <tr>
-		 <th>name</th>
-		 <th>tipo</th>
-		 <th>estado</th>
-    <th>Actions</th>
+		 <th>Nombre</th>
+		 <th>Tipo</th>
+		 <th>Estado</th>
+		 <th>Cantidad</th>
+    <th>Acciones</th>
     </tr>
     </thead>
     <tbody>
@@ -16,14 +17,10 @@
 		<td><%= htmlEncode(orden.getDisplay('name')) %></td>
 		<td><%= htmlEncode(orden.getDisplay('tipo')) %></td>
 		<td><%= htmlEncode(orden.getDisplay('estado')) %></td>
+		<td><%= htmlEncode(orden.getDisplay('cantidad')) %></td>
     <td>
-    <% if(showEdit) {%>
-    <a onclick="Backbone.trigger('<%= componentId %>-orden-edit',{id:<%= orden.id %>}); return false" >Edit</a> |
-	<% } %> 
-	<% if(showDelete) {%>
-    <a onclick="Backbone.trigger('<%= componentId %>-orden-delete',{id:<%= orden.id %>}); return false" >Delete</a> 
-	<% } %>    
-	</td>
+    <button onclick="Backbone.trigger('<%= componentId %>-orden-satisfacer',{id:<%= orden.id %>}); return false" >Cumplir</button>
+    </td>
     </tr>
     <% }); %>
     </tbody>
@@ -48,6 +45,10 @@
 		<div class="form-group" >
 		<label for="estado">estado</label>
     	<input type="text" class="form-control" id="estado" name="estado" placeholder="Enter value" value="<%= orden.get('estado') %>"/>	
+		</div>
+		<div class="form-group" >
+		<label for="cantidad">cantidad</label>
+    	<input type="text" class="form-control" id="cantidad" name="cantidad" placeholder="Enter value" value="<%= orden.get('cantidad') %>"/>	
 		</div>
     </form>
     </div>

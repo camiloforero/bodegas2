@@ -43,6 +43,13 @@
             <version>1.0.0.CR3</version>
             <scope>test</scope>
         </dependency>
+        
+        <dependency>
+            <groupId>co.edu.uniandes.csw</groupId>
+            <artifactId>log.service.subsystem</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        
         <dependency>
             <groupId>co.edu.uniandes.csw</groupId>
             <artifactId>pedido.service.subsystem</artifactId>

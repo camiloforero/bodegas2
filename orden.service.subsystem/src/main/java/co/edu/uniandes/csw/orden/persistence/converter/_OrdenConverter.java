@@ -17,6 +17,7 @@ public abstract class _OrdenConverter {
 				dto.setName(entity.getName());
 				dto.setTipo(entity.getTipo());
 				dto.setEstado(entity.getEstado());
+				dto.setCantidad(entity.getCantidad());
 			return dto;
 		}else{
 			return null;
@@ -30,6 +31,7 @@ public abstract class _OrdenConverter {
 			entity.setName(dto.getName());
 			entity.setTipo(dto.getTipo());
 			entity.setEstado(dto.getEstado());
+			entity.setCantidad(dto.getCantidad());
 			return entity;
 		}else {
 			return null;

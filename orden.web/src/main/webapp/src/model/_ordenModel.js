@@ -7,6 +7,8 @@ define([], function() {
 		 'tipo' : ''
  ,  
 		 'estado' : ''
+ ,  
+		 'cantidad' : ''
         },
         initialize: function() {
         },

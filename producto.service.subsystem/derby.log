@@ -1,10 +1,10 @@
 ----------------------------------------------------------------
-Wed May 21 20:03:32 COT 2014:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.1.2 - (1095077): instance a816c00e-0146-2174-5d9d-000006560b28 
-on database directory /private/var/folders/_m/z7cpg8v56256l5vk471j1s0c0000gn/T/gfembed6473163324086532166tmp/lib/databases/embedded_default  with class loader sun.misc.Launcher$AppClassLoader@18fb53f6 
-Loaded from file:/Users/emilcamilonamenleon/.m2/repository/org/glassfish/main/extras/glassfish-embedded-all/3.1.2.2/glassfish-embedded-all-3.1.2.2.jar
+Thu May 22 03:01:33 COT 2014:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.1.2 - (1095077): instance a816c00e-0146-22f3-0efc-000007833a38 
+on database directory C:\Users\Camilo\AppData\Local\Temp\gfembed596151326470679734tmp\lib\databases\embedded_default  with class loader sun.misc.Launcher$AppClassLoader@cde6570 
+Loaded from file:/C:/Users/Camilo/.m2/repository/org/glassfish/main/extras/glassfish-embedded-all/3.1.2.2/glassfish-embedded-all-3.1.2.2.jar
 java.vendor=Oracle Corporation
-java.runtime.version=1.7.0_51-b13
-user.dir=/Users/emilcamilonamenleon/NetBeansProjects/cicloFinal/bodegas2/producto.service.subsystem
+java.runtime.version=1.7.0_25-b17
+user.dir=C:\Users\Camilo\Documents\NetBeansProjects\BodegasUltimate\producto.service.subsystem
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''

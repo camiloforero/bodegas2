@@ -28,6 +28,9 @@ define(['model/ordenModel'], function(ordenModel) {
             Backbone.on(this.componentId + '-' + 'post-orden-delete', function(params) {
                 self.list(params);
             });
+            Backbone.on(this.componentId + '-' + 'orden-satisfacer', function(params) {
+                self.satisfacer(params);
+            });
             Backbone.on(this.componentId + '-' + 'orden-save', function(params) {
                 self.save(params);
             });
@@ -137,6 +140,22 @@ define(['model/ordenModel'], function(ordenModel) {
                             }
                         });
             }
+        },
+        satisfacer: function(params) {
+            alert("llega al controller");
+            var self = this;
+            App.Delegate.OrdenDelegate.satisfacer(
+                    params.id,
+                    function(data)
+                    {
+                        //Función de callback, se activa cuando la actualización se hace satisfactoriamente
+                        alert('Orden satisfecha');
+                    },
+                    function(data)
+                    {
+                        Backbone.trigger(self.componentId + '-' + 'error', {event: this.componentId + '-orden-satisfacer', view: self, id: params.id, data: data, error: 'Error satisfaciendo el pedido'});
+                    });
+            
         },
         _renderList: function() {
             var self = this;

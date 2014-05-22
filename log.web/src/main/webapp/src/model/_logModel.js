@@ -27,6 +27,13 @@ define([], function() {
                  if(value) 
                  return value.get('name');
              }
+                        if(name=='entra'){
+                            
+                            if(this.get('entra'))
+                                return "Entrada";
+                            else
+                                return "Salida";
+                        }
          return this.get(name);
         }
     });

@@ -18,6 +18,7 @@ public abstract class _OrdenEntity {
 	private String name;
 	private String tipo;
 	private String estado;
+	private Integer cantidad;
 
 	public Long getId(){
 		return id;
@@ -46,5 +47,12 @@ public abstract class _OrdenEntity {
 	
 	public void setEstado(String estado){
 		this.estado = estado;
+	}
+	public Integer getCantidad(){
+		return cantidad;
+	}
+	
+	public void setCantidad(Integer cantidad){
+		this.cantidad = cantidad;
 	}
 }

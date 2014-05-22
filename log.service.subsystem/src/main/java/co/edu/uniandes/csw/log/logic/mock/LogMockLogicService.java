@@ -8,5 +8,15 @@ import co.edu.uniandes.csw.log.logic.api.ILogLogicService;
 @Alternative
 @Singleton
 public class LogMockLogicService extends _LogMockLogicService implements ILogLogicService {
+
+    public int darCantidadProducto(long idProducto) {
+        return 0;
+
+    }
+
+    public void cumplirOrdenDespacho(long idProducto, int cantidad) 
+    {
+        
+    }
 	
 }
