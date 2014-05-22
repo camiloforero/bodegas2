@@ -14,4 +14,23 @@
       <property name="eclipselink.logging.level" value="FINE"/>            
     </properties>
   </persistence-unit>
+  
+  <persistence-unit name="BodegaMasterPU" transaction-type="JTA">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>co.edu.uniandes.csw.iteminventario.persistence.entity.ItemInventarioEntity</class>
+    <class>co.edu.uniandes.csw.bodega.master.persistence.entity.BodegaItemInventarioEntity</class>
+    <class>co.edu.uniandes.csw.bodega.persistence.entity.BodegaEntity</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <shared-cache-mode>NONE</shared-cache-mode>
+    <properties>
+      <property name="eclipselink.ddl-generation" value="create-tables"/>
+      <property name="eclipselink.target-database" value="Derby"/>
+      <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/jdbcISIS4719;create=true"/>
+      <property name="javax.persistence.jdbc.bodega" value="APP"/>
+      <property name="javax.persistence.jdbc.password" value="APP"/>
+      <property name="eclipselink.logging.level" value="FINE"/>
+    </properties>
+    
+  </persistence-unit>
 </persistence>
