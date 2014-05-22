@@ -38,7 +38,7 @@ public class LogPersistenceTest {
 	@Inject
 	private ILogPersistence logPersistence;
 
-	@PersistenceContext
+	@PersistenceContext (unitName = "LogPU")
 	private EntityManager em;
 
 	@Inject
