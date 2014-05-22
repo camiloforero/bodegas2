@@ -10,5 +10,6 @@
     	  <module>../log.web</module>
     	  <module>../log.service.subsystem</module>
           <module>../log.service.subsystem.web</module>
+        <module>../bodega.master.service.subsystem</module>
     </modules>
 </project>
