@@ -5,6 +5,16 @@ define([], function() {
 		 'name' : ''
  ,  
 		 'tipo' : ''
+ ,  
+		 'talla' : ''
+ ,  
+		 'precio' : ''
+ ,  
+		 'imagen' : ''
+ ,  
+		 'calificacion' : ''
+ ,  
+		 'numCalificaciones' : ''
         },
         initialize: function() {
         },

@@ -16,6 +16,11 @@ public abstract class _ProductoConverter {
 				dto.setId(entity.getId());
 				dto.setName(entity.getName());
 				dto.setTipo(entity.getTipo());
+				dto.setTalla(entity.getTalla());
+				dto.setPrecio(entity.getPrecio());
+				dto.setImagen(entity.getImagen());
+				dto.setCalificacion(entity.getCalificacion());
+				dto.setNumCalificaciones(entity.getNumCalificaciones());
 			return dto;
 		}else{
 			return null;
@@ -28,6 +33,11 @@ public abstract class _ProductoConverter {
 			entity.setId(dto.getId());
 			entity.setName(dto.getName());
 			entity.setTipo(dto.getTipo());
+			entity.setTalla(dto.getTalla());
+			entity.setPrecio(dto.getPrecio());
+			entity.setImagen(dto.getImagen());
+			entity.setCalificacion(dto.getCalificacion());
+			entity.setNumCalificaciones(dto.getNumCalificaciones());
 			return entity;
 		}else {
 			return null;

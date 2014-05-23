@@ -46,10 +46,12 @@ public abstract class _ProductoService {
 	public void updateProducto(@PathParam("id") Long id, ProductoDTO producto){
 		productoLogicService.updateProducto(producto);
 	}
+        
+        @GET
+        @Path("busqueda/{nombre}")
+        public List<ProductoDTO> getProductos(String nombre)
+        {
+            return productoLogicService.getProductos(nombre);
+        }
 	
-      @GET
-      @Path("{nombre}")
-	public List<ProductoDTO> getProductos(@PathParam("nombre") String nombre){
-		return productoLogicService.getProductos(nombre);
-	}
 }

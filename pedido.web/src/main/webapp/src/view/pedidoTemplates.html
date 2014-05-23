@@ -4,18 +4,19 @@
     <table class="table striped">
     <thead>
     <tr>
-		 <th>cantidad</th>
-		 <th>name</th>
-		 <th>productoId</th>
+                 <th>Nombre</th>	
+		 <th>Producto</th>	 
+		 <th>Cantidad</th>
     <th>Actions</th>
     </tr>
     </thead>
     <tbody>
     <% _.each(pedidos, function(pedido) { %>
     <tr>
-		<td><%= htmlEncode(pedido.getDisplay('cantidad')) %></td>
 		<td><%= htmlEncode(pedido.getDisplay('name')) %></td>
 		<td><%= htmlEncode(pedido.getDisplay('productoId')) %></td>
+                <td><%= htmlEncode(pedido.getDisplay('cantidad')) %></td>
+		
     <td>
     <% if(showEdit) {%>
     <a onclick="Backbone.trigger('<%= componentId %>-pedido-edit',{id:<%= pedido.id %>}); return false" >Edit</a> |

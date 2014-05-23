@@ -9,10 +9,17 @@ import javax.inject.Inject;
 import javax.enterprise.inject.Default;
 
 import co.edu.uniandes.csw.producto.logic.api.IProductoLogicService;
+import co.edu.uniandes.csw.producto.logic.dto.ProductoDTO;
+import java.util.List;
 
 @Default
 @Stateless
 @LocalBean
 public class ProductoLogicService extends _ProductoLogicService implements IProductoLogicService {
+
+    public List<ProductoDTO> getProductos(String nombre) 
+    {
+        return persistance.getProductos(nombre);
+    }
 
 }

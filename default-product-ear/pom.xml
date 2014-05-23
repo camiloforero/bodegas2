@@ -35,6 +35,20 @@
     </plugins>
   </build>
     <dependencies>
+        
+        <dependency>
+            <groupId>co.edu.uniandes.csw</groupId>
+            <artifactId>log.service.subsystem.web</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <type>war</type>
+        </dependency>
+        <dependency>
+            <groupId>co.edu.uniandes.csw.spl</groupId>
+            <artifactId>log.web</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <type>war</type>
+        </dependency>		
+        
         <dependency>
             <groupId>co.edu.uniandes.csw</groupId>
             <artifactId>bodega.service.subsystem.web</artifactId>
@@ -46,7 +60,19 @@
             <artifactId>bodega.web</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <type>war</type>
-        </dependency>		  
+        </dependency>	
+        	 <dependency>
+            <groupId>co.edu.uniandes.csw</groupId>
+            <artifactId>producto.service.subsystem.web</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <type>war</type>
+        </dependency>
+        <dependency>
+            <groupId>co.edu.uniandes.csw.spl</groupId>
+            <artifactId>producto.web</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <type>war</type>
+        </dependency>	
         <dependency>
             <groupId>co.edu.uniandes.csw</groupId>
             <artifactId>iteminventario.service.subsystem.web</artifactId>
@@ -59,30 +85,11 @@
             <version>0.0.1-SNAPSHOT</version>
             <type>war</type>
         </dependency>		  
-        <dependency>
-            <groupId>co.edu.uniandes.csw</groupId>
-            <artifactId>producto.service.subsystem.web</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <type>war</type>
-        </dependency>
-        <dependency>
-            <groupId>co.edu.uniandes.csw.spl</groupId>
-            <artifactId>producto.web</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <type>war</type>
-        </dependency>		  
-        <dependency>
-            <groupId>co.edu.uniandes.csw</groupId>
-            <artifactId>log.service.subsystem.web</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <type>war</type>
-        </dependency>
-        <dependency>
-            <groupId>co.edu.uniandes.csw.spl</groupId>
-            <artifactId>log.web</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <type>war</type>
-        </dependency>		  
+       
+          
+        
+        	  
+          
         <dependency>
             <groupId>co.edu.uniandes.csw</groupId>
             <artifactId>pedido.service.subsystem.web</artifactId>
@@ -107,6 +114,7 @@
             <version>0.0.1-SNAPSHOT</version>
             <type>war</type>
         </dependency>		  
+        
         
     
     </dependencies>

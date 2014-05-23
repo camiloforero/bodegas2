@@ -10,6 +10,7 @@ import javax.ejb.LocalBean;
 @Default
 @Stateless 
 @LocalBean
-public class PedidoPersistence extends _PedidoPersistence  implements IPedidoPersistence {
+public class PedidoPersistence extends _PedidoPersistence  implements IPedidoPersistence 
+{
 
 }

@@ -6,6 +6,11 @@
     <tr>
 		 <th>name</th>
 		 <th>tipo</th>
+		 <th>talla</th>
+		 <th>precio</th>
+		 <th>imagen</th>
+		 <th>calificacion</th>
+		 <th>numCalificaciones</th>
     <th>Actions</th>
     </tr>
     </thead>
@@ -14,6 +19,11 @@
     <tr>
 		<td><%= htmlEncode(producto.getDisplay('name')) %></td>
 		<td><%= htmlEncode(producto.getDisplay('tipo')) %></td>
+		<td><%= htmlEncode(producto.getDisplay('talla')) %></td>
+		<td><%= htmlEncode(producto.getDisplay('precio')) %></td>
+		<td><%= htmlEncode(producto.getDisplay('imagen')) %></td>
+		<td><%= htmlEncode(producto.getDisplay('calificacion')) %></td>
+		<td><%= htmlEncode(producto.getDisplay('numCalificaciones')) %></td>
     <td>
     <% if(showEdit) {%>
     <a onclick="Backbone.trigger('<%= componentId %>-producto-edit',{id:<%= producto.id %>}); return false" >Edit</a> |
@@ -42,6 +52,26 @@
 		<div class="form-group" >
 		<label for="tipo">tipo</label>
     	<input type="text" class="form-control" id="tipo" name="tipo" placeholder="Enter value" value="<%= producto.get('tipo') %>"/>	
+		</div>
+		<div class="form-group" >
+		<label for="talla">talla</label>
+    	<input type="text" class="form-control" id="talla" name="talla" placeholder="Enter value" value="<%= producto.get('talla') %>"/>	
+		</div>
+		<div class="form-group" >
+		<label for="precio">precio</label>
+    	<input type="text" class="form-control" id="precio" name="precio" placeholder="Enter value" value="<%= producto.get('precio') %>"/>	
+		</div>
+		<div class="form-group" >
+		<label for="imagen">imagen</label>
+    	<input type="text" class="form-control" id="imagen" name="imagen" placeholder="Enter value" value="<%= producto.get('imagen') %>"/>	
+		</div>
+		<div class="form-group" >
+		<label for="calificacion">calificacion</label>
+    	<input type="text" class="form-control" id="calificacion" name="calificacion" placeholder="Enter value" value="<%= producto.get('calificacion') %>"/>	
+		</div>
+		<div class="form-group" >
+		<label for="numCalificaciones">numCalificaciones</label>
+    	<input type="text" class="form-control" id="numCalificaciones" name="numCalificaciones" placeholder="Enter value" value="<%= producto.get('numCalificaciones') %>"/>	
 		</div>
     </form>
     </div>

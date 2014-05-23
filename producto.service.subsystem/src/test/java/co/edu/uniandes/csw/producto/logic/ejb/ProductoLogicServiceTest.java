@@ -68,6 +68,11 @@ public class ProductoLogicServiceTest {
 			ProductoDTO pdto=new ProductoDTO();
 			pdto.setName(generateRandom(String.class));
 			pdto.setTipo(generateRandom(String.class));
+			pdto.setTalla(generateRandom(String.class));
+			pdto.setPrecio(generateRandom(String.class));
+			pdto.setImagen(generateRandom(String.class));
+			pdto.setCalificacion(generateRandom(Integer.class));
+			pdto.setNumCalificaciones(generateRandom(Integer.class));
 			pdto=productoPersistence.createProducto(pdto);
 			data.add(pdto);
 		}
@@ -78,6 +83,11 @@ public class ProductoLogicServiceTest {
 		ProductoDTO ldto=new ProductoDTO();
 		ldto.setName(generateRandom(String.class));
 		ldto.setTipo(generateRandom(String.class));
+		ldto.setTalla(generateRandom(String.class));
+		ldto.setPrecio(generateRandom(String.class));
+		ldto.setImagen(generateRandom(String.class));
+		ldto.setCalificacion(generateRandom(Integer.class));
+		ldto.setNumCalificaciones(generateRandom(Integer.class));
 		
 		
 		ProductoDTO result=productoLogicService.createProducto(ldto);
@@ -88,6 +98,11 @@ public class ProductoLogicServiceTest {
 		
 		Assert.assertEquals(ldto.getName(), pdto.getName());	
 		Assert.assertEquals(ldto.getTipo(), pdto.getTipo());	
+		Assert.assertEquals(ldto.getTalla(), pdto.getTalla());	
+		Assert.assertEquals(ldto.getPrecio(), pdto.getPrecio());	
+		Assert.assertEquals(ldto.getImagen(), pdto.getImagen());	
+		Assert.assertEquals(ldto.getCalificacion(), pdto.getCalificacion());	
+		Assert.assertEquals(ldto.getNumCalificaciones(), pdto.getNumCalificaciones());	
 	}
 	
 	@Test
@@ -112,6 +127,11 @@ public class ProductoLogicServiceTest {
         Assert.assertNotNull(ldto);
 		Assert.assertEquals(pdto.getName(), ldto.getName());
 		Assert.assertEquals(pdto.getTipo(), ldto.getTipo());
+		Assert.assertEquals(pdto.getTalla(), ldto.getTalla());
+		Assert.assertEquals(pdto.getPrecio(), ldto.getPrecio());
+		Assert.assertEquals(pdto.getImagen(), ldto.getImagen());
+		Assert.assertEquals(pdto.getCalificacion(), ldto.getCalificacion());
+		Assert.assertEquals(pdto.getNumCalificaciones(), ldto.getNumCalificaciones());
         
 	}
 	
@@ -131,6 +151,11 @@ public class ProductoLogicServiceTest {
 		ldto.setId(pdto.getId());
 		ldto.setName(generateRandom(String.class));
 		ldto.setTipo(generateRandom(String.class));
+		ldto.setTalla(generateRandom(String.class));
+		ldto.setPrecio(generateRandom(String.class));
+		ldto.setImagen(generateRandom(String.class));
+		ldto.setCalificacion(generateRandom(Integer.class));
+		ldto.setNumCalificaciones(generateRandom(Integer.class));
 		
 		
 		productoLogicService.updateProducto(ldto);
@@ -140,6 +165,11 @@ public class ProductoLogicServiceTest {
 		
 		Assert.assertEquals(ldto.getName(), resp.getName());	
 		Assert.assertEquals(ldto.getTipo(), resp.getTipo());	
+		Assert.assertEquals(ldto.getTalla(), resp.getTalla());	
+		Assert.assertEquals(ldto.getPrecio(), resp.getPrecio());	
+		Assert.assertEquals(ldto.getImagen(), resp.getImagen());	
+		Assert.assertEquals(ldto.getCalificacion(), resp.getCalificacion());	
+		Assert.assertEquals(ldto.getNumCalificaciones(), resp.getNumCalificaciones());	
 	}
 	
 	public <T> T generateRandom(Class<T> objectClass){

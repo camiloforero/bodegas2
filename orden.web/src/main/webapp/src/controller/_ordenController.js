@@ -144,7 +144,7 @@ define(['model/ordenModel'], function(ordenModel) {
         satisfacer: function(params) {
             alert("llega al controller");
             var self = this;
-            App.Delegate.OrdenDelegate.satisfacer(
+            App.Delegate.OrdenDelegate.prototype.satisfacer(
                     params.id,
                     function(data)
                     {

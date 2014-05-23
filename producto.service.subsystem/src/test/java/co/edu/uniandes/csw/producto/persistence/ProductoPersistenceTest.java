@@ -73,6 +73,11 @@ public class ProductoPersistenceTest {
 			ProductoEntity entity=new ProductoEntity();
 			entity.setName(generateRandom(String.class));
 			entity.setTipo(generateRandom(String.class));
+			entity.setTalla(generateRandom(String.class));
+			entity.setPrecio(generateRandom(String.class));
+			entity.setImagen(generateRandom(String.class));
+			entity.setCalificacion(generateRandom(Integer.class));
+			entity.setNumCalificaciones(generateRandom(Integer.class));
 			em.persist(entity);
 			data.add(entity);
 		}
@@ -83,6 +88,11 @@ public class ProductoPersistenceTest {
 		ProductoDTO dto=new ProductoDTO();
 		dto.setName(generateRandom(String.class));
 		dto.setTipo(generateRandom(String.class));
+		dto.setTalla(generateRandom(String.class));
+		dto.setPrecio(generateRandom(String.class));
+		dto.setImagen(generateRandom(String.class));
+		dto.setCalificacion(generateRandom(Integer.class));
+		dto.setNumCalificaciones(generateRandom(Integer.class));
 		
 		
 		ProductoDTO result=productoPersistence.createProducto(dto);
@@ -93,6 +103,11 @@ public class ProductoPersistenceTest {
 		
 		Assert.assertEquals(dto.getName(), entity.getName());	
 		Assert.assertEquals(dto.getTipo(), entity.getTipo());	
+		Assert.assertEquals(dto.getTalla(), entity.getTalla());	
+		Assert.assertEquals(dto.getPrecio(), entity.getPrecio());	
+		Assert.assertEquals(dto.getImagen(), entity.getImagen());	
+		Assert.assertEquals(dto.getCalificacion(), entity.getCalificacion());	
+		Assert.assertEquals(dto.getNumCalificaciones(), entity.getNumCalificaciones());	
 	}
 	
 	@Test
@@ -117,6 +132,11 @@ public class ProductoPersistenceTest {
         Assert.assertNotNull(dto);
 		Assert.assertEquals(entity.getName(), dto.getName());
 		Assert.assertEquals(entity.getTipo(), dto.getTipo());
+		Assert.assertEquals(entity.getTalla(), dto.getTalla());
+		Assert.assertEquals(entity.getPrecio(), dto.getPrecio());
+		Assert.assertEquals(entity.getImagen(), dto.getImagen());
+		Assert.assertEquals(entity.getCalificacion(), dto.getCalificacion());
+		Assert.assertEquals(entity.getNumCalificaciones(), dto.getNumCalificaciones());
         
 	}
 	
@@ -136,6 +156,11 @@ public class ProductoPersistenceTest {
 		dto.setId(entity.getId());
 		dto.setName(generateRandom(String.class));
 		dto.setTipo(generateRandom(String.class));
+		dto.setTalla(generateRandom(String.class));
+		dto.setPrecio(generateRandom(String.class));
+		dto.setImagen(generateRandom(String.class));
+		dto.setCalificacion(generateRandom(Integer.class));
+		dto.setNumCalificaciones(generateRandom(Integer.class));
 		
 		
 		productoPersistence.updateProducto(dto);
@@ -145,17 +170,13 @@ public class ProductoPersistenceTest {
 		
 		Assert.assertEquals(dto.getName(), resp.getName());	
 		Assert.assertEquals(dto.getTipo(), resp.getTipo());	
+		Assert.assertEquals(dto.getTalla(), resp.getTalla());	
+		Assert.assertEquals(dto.getPrecio(), resp.getPrecio());	
+		Assert.assertEquals(dto.getImagen(), resp.getImagen());	
+		Assert.assertEquals(dto.getCalificacion(), resp.getCalificacion());	
+		Assert.assertEquals(dto.getNumCalificaciones(), resp.getNumCalificaciones());	
 	}
-        
-        @Test
-        public void enviarCorreoTest(){
-            try{
-               productoPersistence.enviarCorreo("A", "B");
-            }
-            catch(Exception e){
-                Assert.fail();
-            }            
-        }	
+	
 	public <T> T generateRandom(Class<T> objectClass){
 		Random r=new Random();
 		if(objectClass.isInstance(String.class)){
