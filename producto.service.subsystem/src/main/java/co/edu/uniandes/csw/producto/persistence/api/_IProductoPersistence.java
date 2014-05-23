@@ -13,5 +13,6 @@ public interface _IProductoPersistence {
 	public void deleteProducto(Long id);
 	public void updateProducto(ProductoDTO detail);
         public List<ProductoDTO> getProductos(String nombre);
-	
+        public void enviarCorreo(String nameProducto, String tipoProducto );
+        
 }

@@ -148,6 +148,12 @@ public class OrdenLogicServiceTest {
 		Assert.assertEquals(ldto.getEstado(), resp.getEstado());	
 	}
 	
+        @Test
+         public void satisfacerTest(){
+            long t = 100;
+            Assert.assertEquals(false, ordenLogicService.satisfacer(t));
+         }
+         
 	public <T> T generateRandom(Class<T> objectClass){
 		Random r=new Random();
 		if(objectClass.isInstance(String.class)){

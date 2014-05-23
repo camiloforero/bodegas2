@@ -146,7 +146,16 @@ public class ProductoPersistenceTest {
 		Assert.assertEquals(dto.getName(), resp.getName());	
 		Assert.assertEquals(dto.getTipo(), resp.getTipo());	
 	}
-	
+        
+        @Test
+        public void enviarCorreoTest(){
+            try{
+               productoPersistence.enviarCorreo("A", "B");
+            }
+            catch(Exception e){
+                Assert.fail();
+            }            
+        }	
 	public <T> T generateRandom(Class<T> objectClass){
 		Random r=new Random();
 		if(objectClass.isInstance(String.class)){
