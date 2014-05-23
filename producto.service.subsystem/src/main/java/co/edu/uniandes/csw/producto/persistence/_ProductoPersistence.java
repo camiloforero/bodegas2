@@ -51,6 +51,12 @@ public abstract class _ProductoPersistence implements _IProductoPersistence {
 		ProductoConverter.entity2PersistenceDTO(entity);
 	}
         
+        @SuppressWarnings("unchecked")
+	public List<ProductoDTO> getProductos(String nombre) {
+		Query q = entityManager.createQuery("select u from ProductoEntity u where name = nombre");
+		return ProductoConverter.entity2PersistenceDTOList(q.getResultList());
+	}
+        
         public void enviarCorreo(String nameProducto, String tipoProducto ) 
 	{
 		Properties props = new Properties();

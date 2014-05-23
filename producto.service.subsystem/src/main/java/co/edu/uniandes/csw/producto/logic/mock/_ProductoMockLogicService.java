@@ -53,5 +53,17 @@ public abstract class _ProductoMockLogicService implements _IProductoLogicServic
 			data.remove(delete);
 			data.add(producto);
 		} 
-	}	
+	}
+        
+        public List<ProductoDTO> getProductos(String nombre){
+            List<ProductoDTO> dataName=new ArrayList<ProductoDTO>();
+		for(ProductoDTO d:data){
+			if(d.getName().equals(nombre)){
+				dataName.add(d);
+			}
+		}
+             return dataName;
+	}
+        
+        
 }

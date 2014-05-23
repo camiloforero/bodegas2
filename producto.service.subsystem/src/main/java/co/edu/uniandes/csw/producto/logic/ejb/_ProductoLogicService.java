@@ -30,5 +30,9 @@ public abstract class _ProductoLogicService implements _IProductoLogicService {
 
 	public void updateProducto(ProductoDTO producto){
 	    persistance.updateProducto(producto); 
-	}	
+        }
+        
+        public List<ProductoDTO> getProductos(String nombre){
+            return persistance.getProductos(nombre);
+        }
 }

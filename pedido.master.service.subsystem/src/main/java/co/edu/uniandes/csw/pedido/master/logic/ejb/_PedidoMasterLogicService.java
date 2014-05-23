@@ -48,22 +48,22 @@ public abstract class _PedidoMasterLogicService implements _IPedidoMasterLogicSe
         PedidoOrdenEntity pedidoOrdenEntity = new PedidoOrdenEntity(persistedPedidoDTO.getId(), persistedOrdenDTO.getId());
         pedidoMasterPersistance.createPedidoOrden(pedidoOrdenEntity);
         
-        //Crea una orden de producción, si aplica
+        //Crea una orden de producciï¿½n, si aplica
         if(diferencia < 0)
         {
             //Crea un DTO para guardar una orden de despacho
-        OrdenDTO ordenProd = new OrdenDTO();
-        //Guarda los atributos
-        ordenProd.setEstado("Por entregar");
-        ordenProd.setId(ordenPersistance.getMaxID() + 1l);
-        ordenProd.setName(persistedPedidoDTO.getName() + " - " + "Orden de reaprovisionamiento");
-        ordenProd.setTipo("Orden de reaprovisionamiento");
-        ordenProd.setCantidad(-diferencia);
-        
-        //Guarda la orden creada
-        persistedOrdenDTO = ordenPersistance.createOrden(ordenProd);
-        pedidoOrdenEntity = new PedidoOrdenEntity(persistedPedidoDTO.getId(), persistedOrdenDTO.getId());
-        pedidoMasterPersistance.createPedidoOrden(pedidoOrdenEntity);
+            OrdenDTO ordenProd = new OrdenDTO();
+            //Guarda los atributos
+            ordenProd.setEstado("Por entregar");
+            ordenProd.setId(ordenPersistance.getMaxID() + 1l);
+            ordenProd.setName(persistedPedidoDTO.getName() + " - " + "Orden de reaprovisionamiento");
+            ordenProd.setTipo("Orden de reaprovisionamiento");
+            ordenProd.setCantidad(diferencia);
+
+            //Guarda la orden creada
+            persistedOrdenDTO = ordenPersistance.createOrden(ordenProd);
+            pedidoOrdenEntity = new PedidoOrdenEntity(persistedPedidoDTO.getId(), persistedOrdenDTO.getId());
+            pedidoMasterPersistance.createPedidoOrden(pedidoOrdenEntity);
         }
         
         
