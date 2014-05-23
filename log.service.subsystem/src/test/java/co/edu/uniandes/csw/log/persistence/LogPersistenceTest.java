@@ -76,7 +76,8 @@ public class LogPersistenceTest {
 			entity.setEntra(generateRandom(Boolean.class));
 			entity.setJustificacion(generateRandom(String.class));
 			entity.setBodegaId(generateRandom(Long.class));
-			entity.setProductoId(generateRandom(Long.class));
+                        entity.setProductoId(generateRandom(long.class));
+			entity.setId(generateRandom(long.class));
 			em.persist(entity);
 			data.add(entity);
 		}
@@ -170,7 +171,22 @@ public class LogPersistenceTest {
 		Assert.assertEquals(dto.getBodegaId(), resp.getBodegaId());	
 		Assert.assertEquals(dto.getProductoId(), resp.getProductoId());	
 	}
-	
+        
+        @Test
+        public void getMaxIDTest(){
+            data.get(0);
+            Assert.assertNotNull(logPersistence.getMaxID());
+            long i = logPersistence.getMaxID();
+            if(i == -1)
+                Assert.fail();            
+        }
+                
+	 @Test
+        public void getMaxItemInventarioIDTest(){
+            data.get(0);
+            Assert.assertNotNull(logPersistence.getMaxID());                       
+        }
+        
 	public <T> T generateRandom(Class<T> objectClass){
 		Random r=new Random();
 		if(objectClass.isInstance(String.class)){
