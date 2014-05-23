@@ -11,6 +11,7 @@ define(['controller/selectionController', 'model/cacheModel', 'model/bodegaMaste
             var uComponent = new BodegaComponent();
             uComponent.initialize();
             uComponent.render('main');
+            this.tabModel.set("showPrint", "false");
             Backbone.on(uComponent.componentId + '-post-bodega-create', function(params) {
                 self.renderChilds(params);
             });
