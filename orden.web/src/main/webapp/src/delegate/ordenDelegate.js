@@ -6,7 +6,7 @@ define(['delegate/_ordenDelegate'], function() {
         satisfacer : function(id,callback,callbackError){
 	    console.log('Satisfacer: '+id);
             $.ajax({
-	          url: '/orden.service.subsystem/webresources/Orden/'+id+'/satisfacer',
+	          url: '/orden.service.subsystem.web/webresources/Orden/'+id+'/satisfacer',
 	          type: 'GET',
 	          datatype: 'application/json',
 	          contentType: 'application/json'
