@@ -41,10 +41,10 @@ public class LogLogicServicesTest {
 	}
         
         @Inject
-	private ILogLogicService bodegaLogicService;
+	private ILogLogicService logLogicService;
 	
 	@Inject
-	private ILogPersistence bodegaPersistence;
+	private ILogPersistence logPersistence;
         
         @Before
 	public void configTest() {
@@ -57,9 +57,9 @@ public class LogLogicServicesTest {
 	}
 
 	private void clearData() {
-		List<LogDTO> dtos=bodegaPersistence.getLogs();
+		List<LogDTO> dtos=logLogicService.getLogs();
 		for(LogDTO dto:dtos){
-			bodegaPersistence.deleteLog(dto.getId());
+			logLogicService.deleteLog(dto.getId());
 		}
 	}
 
@@ -69,25 +69,33 @@ public class LogLogicServicesTest {
 		for(int i=0;i<3;i++){
 			LogDTO pdto=new LogDTO();
 			pdto.setName(generateRandom(String.class));
-			pdto=bodegaPersistence.createLog(pdto);
+                        pdto.setBodegaId(generateRandom(Long.class));
+                        pdto.setCantidad(generateRandom(Integer.class));
+                        pdto.setEntra(true);
+                        pdto.setId(generateRandom(Long.class));
+                        pdto.setJustificacion(generateRandom(String.class));
+                        pdto.setProductoId(generateRandom(Long.class));
+			pdto=logLogicService.createLog(pdto);
 			data.add(pdto);
 		}
 	}
         
+       
         @Test
-        public void createLogTest(){
-		LogDTO ldto=new LogDTO();
-		ldto.setName(generateRandom(String.class));
-		
-		
-		LogDTO result=bodegaLogicService.createLog(ldto);
-		
-		Assert.assertNotNull(result);
-		
-		LogDTO pdto=bodegaPersistence.getLog(result.getId());
-		
-		Assert.assertEquals(ldto.getName(), pdto.getName());	
-	}
+        public void darCantidadProductoTest(){
+           Assert.assertNotNull(logLogicService.darCantidadProducto(generateRandom(Long.class)));
+        }
+                
+        @Test
+        public void cumplirOrdenDespachoTest(){
+            long id = logLogicService.getLogs().get(0).getId();
+            try{
+                logLogicService.cumplirOrdenDespacho(id, 1);
+            }
+            catch(Exception e){
+                Assert.fail();
+            }
+        }
         
         public <T> T generateRandom(Class<T> objectClass){
 		Random r=new Random();
