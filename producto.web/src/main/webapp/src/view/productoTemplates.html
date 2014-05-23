@@ -20,8 +20,8 @@
 		<td><%= htmlEncode(producto.getDisplay('name')) %></td>
 		<td><%= htmlEncode(producto.getDisplay('tipo')) %></td>
 		<td><%= htmlEncode(producto.getDisplay('talla')) %></td>
-		<td><%= htmlEncode(producto.getDisplay('precio')) %></td>
-		<td><%= htmlEncode(producto.getDisplay('imagen')) %></td>
+		<td><%= htmlEncode(producto.getDisplay('precio')) %></td>        
+                <td><img class="img-thumbnail" src="<%= htmlEncode(producto.getDisplay('imagen')) %>"></td>        
 		<td><%= htmlEncode(producto.getDisplay('calificacion')) %></td>
 		<td><%= htmlEncode(producto.getDisplay('numCalificaciones')) %></td>
     <td>
@@ -63,7 +63,7 @@
 		</div>
 		<div class="form-group" >
 		<label for="imagen">imagen</label>
-    	<input type="text" class="form-control" id="imagen" name="imagen" placeholder="Enter value" value="<%= producto.get('imagen') %>"/>	
+    	<input type="text" class="form-control" id="imagen" name="imagen" placeholder="Enter value" value="<%= producto.get('imagen') %>"/>
 		</div>
 		<div class="form-group" >
 		<label for="calificacion">calificacion</label>

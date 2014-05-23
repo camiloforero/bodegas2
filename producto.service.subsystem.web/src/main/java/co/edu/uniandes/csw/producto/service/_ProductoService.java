@@ -47,11 +47,6 @@ public abstract class _ProductoService {
 		productoLogicService.updateProducto(producto);
 	}
         
-        @GET
-        @Path("busqueda/{nombre}")
-        public List<ProductoDTO> getProductos(String nombre)
-        {
-            return productoLogicService.getProductos(nombre);
-        }
+       
 	
 }
