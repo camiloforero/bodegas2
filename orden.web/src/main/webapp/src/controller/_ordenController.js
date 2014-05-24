@@ -34,6 +34,9 @@ define(['model/ordenModel'], function(ordenModel) {
             Backbone.on(this.componentId + '-' + 'orden-save', function(params) {
                 self.save(params);
             });
+            Backbone.on(this.componentId + '-' + 'toolbar-print', function(params) {
+                window.location = "http://localhost:8383/EquipoRocketIndex/public_html/index.html";
+            });
             if(self.postInit){
             	self.postInit();
             }

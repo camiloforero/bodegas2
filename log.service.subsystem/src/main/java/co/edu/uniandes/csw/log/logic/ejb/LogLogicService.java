@@ -31,33 +31,41 @@ public class LogLogicService extends _LogLogicService implements ILogLogicServic
         
     }
     
-    public void cumplirOrdenDespacho(long idProducto, int cantidad)
+    public boolean cumplirOrden(long idProducto, int cantidad, String tipo)
     {
-        for (ItemInventarioDTO item : itemInventarioPersistance.getItemInventariosProducto(idProducto))
+        if(tipo.equals("Örden de despacho"))
         {
-            if(item.getCantidad() < cantidad)
+            for (ItemInventarioDTO item : itemInventarioPersistance.getItemInventariosProducto(idProducto))
             {
-                LogDTO log = new LogDTO();
-                log.setBodegaId(Long.parseLong(item.getName()));
-                log.setCantidad(item.getCantidad());
-                log.setEntra(false);
-                log.setJustificacion("Orden de despacho");
-                log.setName(new SimpleDateFormat("dd/MM/YYYY - HH:mm").format(new Date()));
-                log.setProductoId(idProducto);
-                createLog(log);        
+                if(item.getCantidad() < cantidad)
+                {
+                    LogDTO log = new LogDTO();
+                    log.setBodegaId(Long.parseLong(item.getName()));
+                    log.setCantidad(item.getCantidad());
+                    log.setEntra(false);
+                    log.setJustificacion("Orden de despacho");
+                    log.setName(new SimpleDateFormat("dd/MM/YYYY - HH:mm").format(new Date()));
+                    log.setProductoId(idProducto);
+                    createLog(log);
+                }
+                else
+                {
+                    LogDTO log = new LogDTO();
+                    log.setBodegaId(Long.parseLong(item.getName()));
+                    log.setCantidad(cantidad);
+                    log.setEntra(false);
+                    log.setJustificacion("Orden de despacho");
+                    log.setName(new SimpleDateFormat("dd/MM/YYYY - HH:mm").format(new Date()));
+                    log.setProductoId(idProducto);
+                    createLog(log);
+                    return true;
+                }
             }
-            else
-            {
-                LogDTO log = new LogDTO();
-                log.setBodegaId(Long.parseLong(item.getName()));
-                log.setCantidad(cantidad);
-                log.setEntra(false);
-                log.setJustificacion("Orden de despacho");
-                log.setName(new SimpleDateFormat("dd/MM/YYYY - HH:mm").format(new Date()));
-                log.setProductoId(idProducto);
-                createLog(log);  
-            }
+            
         }
+        
+        return false;
+        
        
     }
 

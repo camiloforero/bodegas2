@@ -1,0 +1,32 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 23/05/2014, 02:10:47 PM
+    Author     : admin
+*/
+
+@font-face {
+    font-family: Zenikomit;
+    src: url(../fnots/Znikomit.otf);
+}
+
+.navbar-nav{
+    margin: 0 auto;
+    display: table;
+    table-layout: fixed;
+    float:none;
+}
+
+p#super_titulo {
+    margin-top: 15%;
+    text-align: center;
+    font-size: 100px;
+}
+li.t_bar {
+    font-size: 24px;
+    
+}
+

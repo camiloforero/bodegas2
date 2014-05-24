@@ -1,6 +1,7 @@
 
 package co.edu.uniandes.csw.orden.logic.ejb;
 
+import co.edu.uniandes.csw.log.logic.api.ILogLogicService;
 import co.edu.uniandes.csw.orden.logic.api.IOrdenLogicService;
 import co.edu.uniandes.csw.orden.logic.dto.OrdenDTO;
 import javax.ejb.EJB;
@@ -16,11 +17,16 @@ import javax.inject.Inject;
 public class OrdenLogicService extends _OrdenLogicService implements IOrdenLogicService 
 {
 
+    @Inject
+    protected ILogLogicService logLogicService;
+    
     public boolean satisfacer(long id) {
-        System.out.println("VICTORY " + id);
         OrdenDTO orden = persistance.getOrden(id);
         int cantidad = orden.getCantidad();
         long idProducto = Long.parseLong(orden.getName());
+        String tipo = orden.getTipo();
+        logLogicService.cumplirOrden(idProducto, cantidad, tipo);
+        
         
         return false;
     }

@@ -18,7 +18,6 @@ define([], function() {
              }
                         if(name=='name'){  
                  var id = parseInt(this.get('name'));
-                 alert(id);
                  var value = App.Utils.getModelFromCache('bodegaComponent',id);
                  if(value) 
                  return value.get('name');

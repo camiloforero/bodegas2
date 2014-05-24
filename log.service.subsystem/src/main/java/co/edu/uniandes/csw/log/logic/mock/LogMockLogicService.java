@@ -14,9 +14,9 @@ public class LogMockLogicService extends _LogMockLogicService implements ILogLog
 
     }
 
-    public void cumplirOrdenDespacho(long idProducto, int cantidad) 
+    public boolean cumplirOrden(long idProducto, int cantidad, String tipo) 
     {
-        
+        return false;
     }
 	
 }

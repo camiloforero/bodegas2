@@ -5,6 +5,6 @@ public interface ILogLogicService extends _ILogLogicService
 {
     public int darCantidadProducto (long idProducto);
     
-    public void cumplirOrdenDespacho(long idProducto, int cantidad);
+    public boolean cumplirOrden(long idProducto, int cantidad, String tipo);
 
 }

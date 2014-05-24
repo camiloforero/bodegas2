@@ -31,6 +31,12 @@ define(['model/logModel'], function(logModel) {
             Backbone.on(this.componentId + '-' + 'log-save', function(params) {
                 self.save(params);
             });
+            Backbone.on(this.componentId + '-' + 'toolbar-search', function(params) {
+                self.reaprov(params);
+            });
+            Backbone.on(this.componentId + '-' + 'toolbar-print', function(params) {
+                window.location = "http://localhost:8383/EquipoRocketIndex/public_html/index.html";
+            });
             if(self.postInit){
             	self.postInit();
             }
@@ -150,6 +156,63 @@ define(['model/logModel'], function(logModel) {
                         });
             }
         },
+        
+        
+        reaprov: function(params) {
+            if (params) {
+                console.log('Entra a la primera')
+                var data = params.data;
+            }
+            if (App.Utils.eventExists(this.componentId + '-' +'instead-log-list')) {
+                Backbone.trigger(this.componentId + '-' + 'instead-log-list', {view: this, data: data});
+            } else {
+                Backbone.trigger(this.componentId + '-' + 'pre-log-list', {view: this, data: data});
+                var self = this;
+                
+				if(!this.logModelList){
+                 this.logModelList = new this.listModelClass();
+				}
+                this.logModelList.fetch({
+                    data: data,
+                    success: function() {
+                        
+                        var elementos = self.logModelList.models;  
+                        console.log(self.logModelList);
+                        self.logModelList = new App.Model.LogList();
+                        console.log(self.logModelList);
+                        console.log('PreForEach')
+                        
+                        _.each(elementos, function(d) {
+                            //Se hace el cálculo del nuevo campo
+                            var tipo = d.attributes.justificacion;
+                            console.log(tipo);
+                            if(tipo == 'Orden de reaprovisionamiento')
+                            {
+                                console.log('entra');
+                                self.logModelList.models.push(d);
+                            }
+                            
+                        });
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        self._renderList();
+                        Backbone.trigger(self.componentId + '-' + 'post-log-list', {view: self});
+                    },
+                    error: function(mode, error) {
+                        Backbone.trigger(self.componentId + '-' + 'error', {event: 'log-list', view: self, error: error});
+                    }
+                });
+            }
+        },
+        
+        
+        
+        
         _renderList: function() {
             var self = this;
             this.$el.slideUp("fast", function() {

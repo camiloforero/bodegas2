@@ -39,7 +39,7 @@ public abstract class _PedidoMasterLogicService implements _IPedidoMasterLogicSe
         //Guarda los atributos
         ordenDespacho.setEstado("Por entregar");
         ordenDespacho.setId(ordenPersistance.getMaxID() + 1l);
-        ordenDespacho.setName(persistedPedidoDTO.getName() + " - " + "Orden de despacho");
+        ordenDespacho.setName(persistedPedidoDTO.getProductoId() + "");
         ordenDespacho.setTipo("Orden de despacho");
         ordenDespacho.setCantidad(cantidadPosible);
         
@@ -56,9 +56,9 @@ public abstract class _PedidoMasterLogicService implements _IPedidoMasterLogicSe
             //Guarda los atributos
             ordenProd.setEstado("Por entregar");
             ordenProd.setId(ordenPersistance.getMaxID() + 1l);
-            ordenProd.setName(persistedPedidoDTO.getName() + " - " + "Orden de reaprovisionamiento");
-            ordenProd.setTipo("Orden de reaprovisionamiento");
-            ordenProd.setCantidad(diferencia);
+            ordenProd.setName(persistedPedidoDTO.getProductoId() + "");
+            ordenProd.setTipo("Orden de produccion");
+            ordenProd.setCantidad(-diferencia);
 
             //Guarda la orden creada
             persistedOrdenDTO = ordenPersistance.createOrden(ordenProd);
