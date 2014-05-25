@@ -5,6 +5,5 @@ public interface ILogPersistence extends _ILogPersistence
 {
     public long getMaxID();
     
-    public long getMaxItemInventarioID();
 
 }

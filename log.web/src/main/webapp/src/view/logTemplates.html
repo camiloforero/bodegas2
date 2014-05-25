@@ -4,7 +4,7 @@
     <table class="table striped">
     <thead>
     <tr>
-		 <th>Nombre</th>
+		 <th>Fecha</th>
                  <th>Producto</th>
 		 <th>Cantidad</th>
 		 <th>Bodega</th>
@@ -22,7 +22,7 @@
 		<td><%= htmlEncode(log.getDisplay('cantidad')) %></td>
 		<td><%= htmlEncode(log.getDisplay('bodegaId')) %></td>
 		<td><%= htmlEncode(log.getDisplay('entra')) %></td>
-		<td><%= htmlEncode(log.getDisplay('justificacion')) %></td>
+		<td id="<%= htmlEncode(log.getDisplay('justificacion')) %>"><%= htmlEncode(log.getDisplay('justificacion')) %></td>
 		
     <td>
     <% if(showEdit) {%>
@@ -46,25 +46,25 @@
     <input type="hidden" name="id" value="<%= log.id %>"/>
     <% }%>
 		<div class="form-group" >
-		<label for="name">name</label>
+		<label for="name">Fecha</label>
     	<input type="text" class="form-control" id="name" name="name" placeholder="Enter value" value="<%= log.get('name') %>"/>	
 		</div>
 		<div class="form-group" >
-		<label for="cantidad">cantidad</label>
+		<label for="cantidad">Cantidad</label>
     	<input type="text" class="form-control" id="cantidad" name="cantidad" placeholder="Enter value" value="<%= log.get('cantidad') %>"/>	
 		</div>
 		<div class="form-group" >
 	    <label>
-    	  <input id="entra" name="entra" value="true" type="checkbox" <%= log.get('entra')?'checked':'' %>> entra
+    	  <input id="entra" name="entra" value="true" type="checkbox" <%= log.get('entra')?'checked':'' %>> Tipo de movimiento
     	</label>
 		</div>
 		<div class="form-group" >
-		<label for="justificacion">justificacion</label>
+		<label for="justificacion">Justificación</label>
     	<input type="text" class="form-control" id="justificacion" name="justificacion" placeholder="Enter value" value="<%= log.get('justificacion') %>"/>	
 		</div>
 		<div class="form-group" >
  
-			<label for="bodegaidId">bodegaId</label> 
+			<label for="bodegaidId">Bodega</label> 
             <select class="form-control" id="bodegaId" name="bodegaId">
 			  <option value="">None</option>
             <% bodega.each(function(bodegaid) { %> 
@@ -74,11 +74,11 @@
 		</div>
 		<div class="form-group" >
  
-			<label for="productoidId">productoId</label> 
+			<label for="productoidId">Producto</label> 
             <select class="form-control" id="productoId" name="productoId">
 			  <option value="">None</option>
             <% producto.each(function(productoid) { %> 
-              <option value="<%=productoid.get('id')%>" <% if(log.get('productoId')==productoid.get('id')) {%>selected<%}%> ><%=productoid.get('name')%></option>
+              <option value="<%=productoid.get('id')%>" <% if(log.get('productoId')==productoid.get('id')) {%>selected<%}%> ><%=productoid.get('name')%>" "<%=productoid.get('talla')%> </option>
             <% }); %>                
             </select>  
 		</div>

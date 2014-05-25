@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface IItemInventarioPersistence extends _IItemInventarioPersistence {
     
-    public List<ItemInventarioDTO> getItemInventariosProducto(long idProducto);
+    public List<ItemInventarioDTO> getItemInventariosProducto(long idProducto);    
+    
+    public long getMaxID();
 
 }

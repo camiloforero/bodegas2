@@ -24,6 +24,7 @@ define([], function() {
              }
 			 if(name=='productoId'){  
                  var value = App.Utils.getModelFromCache('productoComponent',this.get('productoId'));
+                 console.log(value.get('talla'));
                  if(value) 
                  return value.get('name') + ' ' + value.get('talla');
              }

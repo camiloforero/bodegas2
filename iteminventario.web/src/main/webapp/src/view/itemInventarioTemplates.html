@@ -13,7 +13,7 @@
     <tbody>
     <% _.each(itemInventarios, function(itemInventario) { %>
     <tr>
-		<td><%= htmlEncode(itemInventario.getDisplay('name')) %></td>
+		<td BodegaID='<%= htmlEncode(itemInventario.getDisplay('name')) %>'><%= htmlEncode(itemInventario.getDisplay('name')) %></td>
 		<td><%= htmlEncode(itemInventario.getDisplay('productoId')) %></td>
 		<td><%= htmlEncode(itemInventario.getDisplay('cantidad')) %></td>
     <td>

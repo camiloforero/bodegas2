@@ -39,15 +39,15 @@ public abstract class _LogLogicService implements _ILogLogicService {
             for (int i = 0; i < itemsProducto.size() && !existe; i++) 
             {
                 ItemInventarioDTO item = itemsProducto.get(i);
-                System.out.println("");
                 if(item.getProductoId() == log.getProductoId() && Long.parseLong(item.getName()) == log.getBodegaId())
                 {
-                    System.out.println(log.getEntra());
                     int cantidad = item.getCantidad() + multiplica*log.getCantidad();
                     if(cantidad < 0)
                         throw new RuntimeException("No hay objetos suficientes en la bodega");
                     item.setCantidad(cantidad);
-                    itemInventarioPersistance.updateItemInventario(item);
+                    System.out.println("ID item inventario: " + item.getId());
+                    if(cantidad == 0) itemInventarioPersistance.deleteItemInventario(item.getId());
+                    else itemInventarioPersistance.updateItemInventario(item);
                     existe = true;
                 }
             }
@@ -59,7 +59,7 @@ public abstract class _LogLogicService implements _ILogLogicService {
                 ItemInventarioDTO iDTO = new ItemInventarioDTO();
                 iDTO.setName(log.getBodegaId() + "");
                 iDTO.setCantidad(log.getCantidad());
-                iDTO.setId(persistance.getMaxItemInventarioID() + 1l);
+                iDTO.setId(itemInventarioPersistance.getMaxID() + 1l);
                 iDTO.setProductoId(log.getProductoId());
             
                 ItemInventarioDTO persistedItemInventarioDTO = itemInventarioPersistance.createItemInventario(iDTO);          

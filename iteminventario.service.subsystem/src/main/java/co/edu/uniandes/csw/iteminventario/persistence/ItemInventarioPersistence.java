@@ -22,5 +22,11 @@ public class ItemInventarioPersistence extends _ItemInventarioPersistence  imple
 	Query q = entityManager.createQuery("select u from ItemInventarioEntity u where u.productoId = " + idProducto);
 	return ItemInventarioConverter.entity2PersistenceDTOList(q.getResultList());
     }
+    
+    public long getMaxID() {
+        Query q = entityManager.createQuery("SELECT MAX(u.id) from ItemInventarioEntity u");
+        Long resultado = (Long) q.getSingleResult();
+        return resultado == null? -1l : resultado;
+    }
 
 }

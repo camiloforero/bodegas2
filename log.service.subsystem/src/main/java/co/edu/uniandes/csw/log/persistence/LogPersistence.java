@@ -18,11 +18,5 @@ public class LogPersistence extends _LogPersistence  implements ILogPersistence 
         Long resultado = (Long) q.getSingleResult();
         return resultado == null? -1l : resultado;
     }
-    
-    public long getMaxItemInventarioID() {
-        Query q = entityManager.createQuery("SELECT MAX(u.id) from ItemInventarioEntity u");
-        Long resultado = (Long) q.getSingleResult();
-        return resultado == null? -1l : resultado;
-    }
 
 }

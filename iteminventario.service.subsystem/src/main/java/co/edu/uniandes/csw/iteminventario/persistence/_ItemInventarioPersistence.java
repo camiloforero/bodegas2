@@ -34,7 +34,9 @@ public abstract class _ItemInventarioPersistence implements _IItemInventarioPers
 	}
 
 	public void deleteItemInventario(Long id) {
+            System.out.println(id);
 		ItemInventarioEntity entity=entityManager.find(ItemInventarioEntity.class, id);
+                System.out.println(entity);
 		entityManager.remove(entity);
 	}
 

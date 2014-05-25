@@ -14,7 +14,7 @@
     <tbody>
     <% _.each(ordens, function(orden) { %>
     <tr>
-		<td><%= htmlEncode(orden.getDisplay('name')) %></td>
+		<td productoID='<%= htmlEncode(orden.getDisplay('name')) %>'><%= htmlEncode(orden.getDisplay('name')) %></td>
 		<td><%= htmlEncode(orden.getDisplay('tipo')) %></td>
 		<td><%= htmlEncode(orden.getDisplay('estado')) %></td>
 		<td><%= htmlEncode(orden.getDisplay('cantidad')) %></td>
