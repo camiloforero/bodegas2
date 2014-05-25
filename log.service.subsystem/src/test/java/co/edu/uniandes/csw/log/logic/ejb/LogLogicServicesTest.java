@@ -90,7 +90,7 @@ public class LogLogicServicesTest {
         public void cumplirOrdenDespachoTest(){
             long id = logLogicService.getLogs().get(0).getId();
             try{
-                logLogicService.cumplirOrdenDespacho(id, 1);
+                logLogicService.cumplirOrden(id, 1, "Orden de reaprovisionamiento");
             }
             catch(Exception e){
                 Assert.fail();

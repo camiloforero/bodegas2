@@ -1,8 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
+*/
 
 package bodega.test.selenium;
 
@@ -67,19 +67,23 @@ public class BodegaTest {
         boolean good = false;
         for (WebElement webElement : table) {
             List<WebElement> elements = webElement.findElements(By.xpath("td"));
-            switch(elements.get(0).getText()) {
-                case("Bodega"):
-                case("NuevaBodega"):
+            for(WebElement elemento : elements)
+            {
+                if(elemento.getText().equals("NuevaBodega"))
                     good = true;
-                    break;
             }
-            assertTrue(good);
         }
+        
+        assertTrue(good);
     }
     
-    
     @AfterClass
-    public static void tearDown() {
+    public static void tearDown()
+    {
         webDriver.quit();
     }
 }
+
+
+
+
